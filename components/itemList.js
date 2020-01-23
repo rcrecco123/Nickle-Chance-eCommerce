@@ -9,7 +9,7 @@ export default class ItemList extends React.Component {
         super(props)
 
         this.state = {
-            items: ['dress1', 'dress2', 'dress3', 'dress4', 'dress5', 'dress6', 'dress7', 'dress8', 'dress9', 'dress10']
+            items: ['dress1', 'dress2', 'dress3', 'dress4', 'dress5', 'dress6', 'dress7', 'dress8', 'dress9', 'dress10', 'dress11', 'dress12']
         }
     }
 
@@ -21,21 +21,19 @@ export default class ItemList extends React.Component {
 
         let items = this.state.items.map((item, i) => {
             return (
-
                 <ItemListThumbnail navigation={this.props.navigation} itemName={item} key={i} />
-
             )
         })
 
         return (
             <ScrollView style={styles.scrollView}>
+                <Text style={styles.header}>{this.props.navigation.state.params.item}</Text>
                 <View style={styles.itemContainer}>
                     {items}
                 </View>
             </ScrollView>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
@@ -43,7 +41,8 @@ const styles = StyleSheet.create({
         fontSize: 25,
         textAlign: 'center',
         justifyContent: 'space-around',
-        padding: 7
+        padding: 7,
+        marginTop: 18
     },
     body: {
         textAlign: 'center'

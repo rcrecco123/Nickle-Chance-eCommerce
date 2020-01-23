@@ -5,6 +5,10 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import ItemList from './components/itemList';
 import itemShow from './components/itemShow';
+import firebaseConfig from './firebaseConfig';
+import * as firebase from 'firebase';
+
+firebase.initializeApp(firebaseConfig);
 
 const MainStack = createStackNavigator({
   Home: { screen: HomeScreen },
