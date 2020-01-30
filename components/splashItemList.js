@@ -17,11 +17,11 @@ export default class SplashItemList extends React.Component {
             <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 5 }}>
 
                 <View style={styles.col2}>
-                    <CustomImage imageSource={require('../assets/textile.jpeg')} header="men's acessories" />
+                    <CustomImage imageSource={require('../assets/textile.jpeg')} header="men's accessories" />
                 </View>
 
                 <View style={styles.col1}>
-                    <CustomImage imageSource={require('../assets/maniquen.jpeg')} header="woman's acessories" />
+                    <CustomImage imageSource={require('../assets/maniquen.jpeg')} header="woman's accessories" />
                 </View>
 
                 <View style={styles.contentBanner} >

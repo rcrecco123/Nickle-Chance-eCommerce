@@ -23,11 +23,8 @@ export default class itemShow extends React.Component {
             <ScrollView style={{ height: 100, borderWidth: 1, padding: 25 }}>
 
                 <View style={styles.main}>
-                    <Text style={{ padding: 7, fontSize: 25 }}>{JSON.stringify(navigation.getParam('name'))}</Text>
+                    <Text style={{ padding: 7, fontSize: 25 }}>{this.props.navigation.state.params.name}</Text>
                     <Image source={require('../assets/clothingitem1.jpeg')} resizeMode='contain' style={styles.image} />
-
-                    {/* <ItemSelection /> */}
-
 
                     <RNPickerSelect
                         onValueChange={(value) =>

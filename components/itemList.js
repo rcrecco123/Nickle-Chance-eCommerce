@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import ItemListThumbnail from './itemListThumbnail';
 import { ScrollView } from 'react-native-gesture-handler';
+import * as firebase from 'firebase';
 
 
 export default class ItemList extends React.Component {
@@ -9,19 +10,41 @@ export default class ItemList extends React.Component {
         super(props)
 
         this.state = {
-            items: ['dress1', 'dress2', 'dress3', 'dress4', 'dress5', 'dress6', 'dress7', 'dress8', 'dress9', 'dress10', 'dress11', 'dress12']
+            items: []
         }
     }
 
     componentDidMount() {
         //make api call to respective category under items!
+        let db = firebase.database()
+        let ref2 = db.ref(`Products/Categories/${this.props.navigation.state.params.item}`)
+
+        ref2.on("value", (snapshot) => {
+
+            let newVal = snapshot.exportVal();
+            let tempNoteList = []
+            this.state.noteList = []
+
+            if (Object.keys(newVal)) {
+                Object.keys(newVal).forEach(key => {
+                    tempNoteList.push(newVal[key])
+                })
+            }
+
+            this.setState({
+                items: tempNoteList
+            })
+
+
+        })
     }
 
     render() {
 
-        let items = this.state.items.map((item, i) => {
+
+        let itemsComps = this.state.items.map((item, i) => {
             return (
-                <ItemListThumbnail navigation={this.props.navigation} itemName={item} key={i} />
+                <ItemListThumbnail navigation={this.props.navigation} key={i} itemName={item.name} />
             )
         })
 
@@ -29,7 +52,7 @@ export default class ItemList extends React.Component {
             <ScrollView style={styles.scrollView}>
                 <Text style={styles.header}>{this.props.navigation.state.params.item}</Text>
                 <View style={styles.itemContainer}>
-                    {items}
+                    {itemsComps}
                 </View>
             </ScrollView>
         )
