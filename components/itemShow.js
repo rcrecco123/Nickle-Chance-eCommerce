@@ -42,9 +42,7 @@ export default class itemShow extends React.Component {
 
                     </RNPickerSelect>
 
-                    {/* <Picker>
-                        <Picker.Item label="small" value="s" />
-                    </Picker> */}
+                    <Button title="add to cart" />
 
                 </View>
 
