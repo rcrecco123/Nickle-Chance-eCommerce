@@ -44,7 +44,7 @@ export default class ItemList extends React.Component {
 
         let itemsComps = this.state.items.map((item, i) => {
             return (
-                <ItemListThumbnail navigation={this.props.navigation} key={i} itemName={item.name} />
+                <ItemListThumbnail navigation={this.props.navigation} key={i} image={item.image} itemName={item.name} />
             )
         })
 
