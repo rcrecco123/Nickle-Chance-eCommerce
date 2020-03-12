@@ -7,25 +7,18 @@ class NavBar extends React.Component {
         super(props)
 
         this.state = {
-            cartCount: "0"
         }
     }
 
 
     render() {
         return (
-            <View>
+            <View style={{ marginTop: 40 }}>
                 <Text>
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.state.cartCount}
-                    CART COUNT: {this.props.count}
+                    Cart Array Length: {this.props.count}
+                </Text>
+                <Text>
+                    Cart Count: {this.props.itemCount}
                 </Text>
             </View>
         )
@@ -35,7 +28,7 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        count: state.cart.itemCount
+        count: () => state.cart.items.length
     }
 }
 

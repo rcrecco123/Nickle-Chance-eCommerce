@@ -44,7 +44,7 @@ class itemShow extends React.Component {
 
                     </RNPickerSelect>
 
-                    <Button title="add to cart" onPress={() => addItem(this.props.navigation.state.params.item)} />
+                    <Button title="add to cart" onPress={() => addItem(this.props.navigation.state.params.itemObject)} />
 
                 </View>
 
@@ -69,10 +69,20 @@ const styles = StyleSheet.create({
     }
 })
 
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+//I am trying to add an item to my store by dispatching this action. I can't seem to
+//figure out what the issue is.
+
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addItem: item => dispatch(addItem(item))
     }
 }
 
-export default connect(null, mapDispatchToProps)(itemShow)
+export default connect(mapStateToProps, mapDispatchToProps)(itemShow)

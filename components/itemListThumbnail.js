@@ -13,7 +13,7 @@ export default class ItemListThumbnail extends React.Component {
     render() {
         return (
             <View style={styles.list}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Item', { name: this.props.itemName, item: this.props.item })}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Item', { itemObject: this.props.itemObject, name: this.props.itemName, item: this.props.item })}>
 
                     {/* <Image source={this.props.image} image={this.props.image} style={styles.image} resizeMode='contain'></Image> */}
                     <Text style={styles.text}>{this.props.itemName} </Text>

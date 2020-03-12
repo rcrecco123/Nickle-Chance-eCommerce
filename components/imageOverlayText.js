@@ -13,7 +13,7 @@ class ImageOverlayText extends React.Component {
     render() {
 
         let header = this.props.header ?
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Category', { item: this.props.header })}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Category', { item: this.props.header, })}>
                 <Text style={styles.header}
                 >{this.props.header}</Text>
             </TouchableOpacity>
