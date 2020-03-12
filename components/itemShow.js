@@ -3,8 +3,10 @@ import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native';
 import { Picker } from '@react-native-community/picker';
 import RNPickerSelect from 'react-native-picker-select'
+import { connect } from "react-redux";
+import { addItem } from '../actions/cart';
 
-export default class itemShow extends React.Component {
+class itemShow extends React.Component {
     constructor(props) {
         super(props)
 
@@ -42,7 +44,7 @@ export default class itemShow extends React.Component {
 
                     </RNPickerSelect>
 
-                    <Button title="add to cart" />
+                    <Button title="add to cart" onPress={() => addItem(this.props.navigation.state.params.item)} />
 
                 </View>
 
@@ -66,3 +68,5 @@ const styles = StyleSheet.create({
         width: 300
     }
 })
+
+export default connect(null)(itemShow)

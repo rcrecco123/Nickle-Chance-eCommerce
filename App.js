@@ -7,13 +7,26 @@ import ItemList from './components/itemList';
 import itemShow from './components/itemShow';
 import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase';
+import ShoppingCart from './components/shoppingCart';
+import ShoppingCartIcon from './components/shoppingCartIcon'
+import store from "./reducers/store";
+import { Provider } from "react-redux";
 
 firebase.initializeApp(firebaseConfig);
 
 const MainStack = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Category: { screen: ItemList },
-  Item: { screen: itemShow }
+  Home: HomeScreen,
+  Category: ItemList,
+  Item: itemShow
+}, {
+  navigationOptions: {
+    headerTitle: 'eCommerce App',
+    headerRight: (
+      <Text>
+        hello
+      </Text>
+    )
+  }
 });
 
 const AppContainer = createAppContainer(MainStack);
@@ -28,7 +41,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <AppContainer />
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
     )
   }
 }
