@@ -26,3 +26,10 @@ export default class ShoppingCart extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        count: state.cart.items.length()
+    }
+}
+

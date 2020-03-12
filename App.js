@@ -11,6 +11,7 @@ import ShoppingCart from './components/shoppingCart';
 import ShoppingCartIcon from './components/shoppingCartIcon'
 import store from "./reducers/store";
 import { Provider } from "react-redux";
+import NavBar from "./components/navBar";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -42,6 +43,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+        <NavBar />
         <AppContainer />
       </Provider>
     )

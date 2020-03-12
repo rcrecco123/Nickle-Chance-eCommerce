@@ -1,6 +1,6 @@
 
-const ADD_ITEM = "ADD_ITEM";
-const DELETE_ITEM = "DELETE_ITEM";
+export const ADD_ITEM = "ADD_ITEM";
+export const DELETE_ITEM = "DELETE_ITEM";
 
 export function addItem(item) {
     return {
