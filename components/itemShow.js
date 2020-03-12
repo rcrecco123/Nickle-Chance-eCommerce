@@ -78,6 +78,8 @@ const mapStateToProps = state => {
 //I am trying to add an item to my store by dispatching this action. I can't seem to
 //figure out what the issue is.
 
+//BUG ISSUE ERROR
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
