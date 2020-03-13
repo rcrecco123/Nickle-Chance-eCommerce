@@ -44,7 +44,7 @@ class itemShow extends React.Component {
 
                     </RNPickerSelect>
 
-                    <Button title="add to cart" onPress={() => addItem(this.props.navigation.state.params.itemObject)} />
+                    <Button title="add to cart" onPress={() => this.props.addItem(this.props.navigation.state.params.itemObject)} />
 
                 </View>
 

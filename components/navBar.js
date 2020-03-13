@@ -7,6 +7,7 @@ class NavBar extends React.Component {
         super(props)
 
         this.state = {
+            cartCount: this.props.items.length
         }
     }
 
@@ -18,7 +19,7 @@ class NavBar extends React.Component {
                     Cart Array Length: {this.props.count}
                 </Text>
                 <Text>
-                    Cart Count: {this.props.itemCount}
+                    {this.props.items}
                 </Text>
             </View>
         )
@@ -27,8 +28,17 @@ class NavBar extends React.Component {
 }
 
 const mapStateToProps = state => {
+
+    let arrCount = 0
+
+    state.items.forEach(item => {
+        arrCount += 1
+    })
+
+
     return {
-        count: () => state.cart.items.length
+        count: 2,
+        items: arrCount
     }
 }
 
