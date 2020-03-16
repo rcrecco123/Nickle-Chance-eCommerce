@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         elevation: 1,
 
         alignSelf: 'center',
-        fontSize: 20,
+        fontSize: 18,
         textAlign: 'center',
         padding: 10,
         backgroundColor: 'rgba(255,255,255,0.6)',
