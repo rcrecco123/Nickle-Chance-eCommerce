@@ -13,6 +13,7 @@ import store from "./reducers/store";
 import { Provider } from "react-redux";
 import NavBar from "./components/navBar";
 
+
 firebase.initializeApp(firebaseConfig);
 
 const MainStack = createStackNavigator({
@@ -44,6 +45,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <NavBar />
+        <ShoppingCart />
         <AppContainer />
       </Provider>
     )

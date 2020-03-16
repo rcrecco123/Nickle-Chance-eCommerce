@@ -1,8 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import { connect } from "react-redux";
 
-export default class ShoppingCart extends React.Component {
+class ShoppingCart extends React.Component {
     constructor(props) {
         super(props)
 
@@ -12,15 +13,20 @@ export default class ShoppingCart extends React.Component {
     }
 
     render() {
+
+        let masterItems = this.state.items.map(item => {
+
+            <Text>{item.name}</Text>
+
+        })
+
         return (
             <View>
                 <Text>
                     Items
                 </Text>
 
-                <FlatList data={this.state.items}
-                    renderItem={({ item }) => <Text>{item.name}</Text>}
-                />
+                {masterItems}
 
             </View>
         )
@@ -29,7 +35,9 @@ export default class ShoppingCart extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        count: state.cart.items.length()
+        items: state.items
     }
 }
+
+export default connect(mapStateToProps, null)(ShoppingCart);
 
